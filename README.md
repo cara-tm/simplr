@@ -1,2 +1,2 @@
-# simplr
-Simplr template: a Textpattern CMS theme
+# Simplr
+Simplr template: a Textpattern CMS theme (in development)
