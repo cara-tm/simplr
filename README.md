@@ -1,5 +1,7 @@
 # Simplr
-Simplr template: a Textpattern CMS theme (in development)
+Simplr template: a Textpattern CMS theme (in development).
+
+![Simplr Textpattern Theme](https://raw.githubusercontent.com/cara-tm/simplr/master/screenshots/simplr-mac-book-air.png "Simplr")
 
 Features:
 
