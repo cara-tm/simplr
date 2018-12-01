@@ -5,7 +5,7 @@ Simplr template: a Textpattern CMS theme (in development).
 
 Features:
 
-* a simple, responsive but strong and robust model with a pretty good browsers support: Internet Explorer 7 minimum;
+* a simple, responsive but strong and robust model with a pretty good browsers support: Internet Explorer 6 minimum;
 * HTML5 markup (with a inline backward support shim);
 * no external dependencies, no huge CSS framwork nor js libraries;
 * hero image with a progressive loading (same visual effect as the one in use into the "Medium" website) in order to not blocking the construction of the "Above the Fold" part;
