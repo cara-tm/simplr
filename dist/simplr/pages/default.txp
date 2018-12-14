@@ -3,19 +3,8 @@
 <txp:css format="link" name="default" />
 <!-- ...or you can use (faster) external CSS files e.g. <link rel="stylesheet" href="<txp:page_url type="theme_path" />/styles/default.css"> -->
 <style>
-code{color:#16a085}
-
-.aside h1 span{margin-right:-.07em}
-/* Multiple background for modern browsers */
-@supports (-webkit-background-clip:text){.hero{background-image: url(<txp:image_url id="1" link="0" />), url(<txp:php>
-$ext = image_info(array('id'=>1,'type'=>'ext'));
-echo "images/w_tiny27/1".$ext;
-</txp:php>)}
-}
 picture{min-height:27.4em;filter:grayscale(1)}@media screen and (max-width: 661px){picture{min-height:auto}}
-
 @media print{.wrapper:after{content: "<txp:site_name /> <txp:output_form form="copyright_date" />"}}
-
 </style>
 </head>
 <body class="default">

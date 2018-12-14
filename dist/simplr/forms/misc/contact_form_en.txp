@@ -4,9 +4,7 @@
 	<txp:com_connect_select name="delay" label="Your deadline for this project? (optional)" options="Choose from the list below…,Next month,In two months,In three months,More (Please specify in your message)" selected="Choose from the list below…" class="input-txt" break="" required="0" lang="en" />
 	<txp:com_connect_text type="url" name="website" label="Your current website (optional)" placeholder="http://" class="input-txt" break="" required="0" />
 	<txp:com_connect_textarea name="message" label="Message" rows="5" class="input-txt" break="" required="1" lang="en" />
-<txp:hide>
-<label class="gdpr comRequired" for="invalid">GPRD consent <a rel="noreferrer" href="https://www.cnil.fr/en/rights-and-obligations" target="_blank">Infos</a> <txp:com_connect_checkbox required="1" label="" label_position="" class="bot" /></label>
-</txp:hide>
+	<txp:com_connect_textarea name="message" label="Your Message (required)" class="" break="" required="1" />
 <txp:php>
 /**
  * Get browser language, given an array of avalaible languages.

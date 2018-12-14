@@ -1,40 +1,7 @@
 <txp:if_plugin name="pat_speeder"><txp:pat_speeder /></txp:if_plugin><txp:output_form form="doctype" />
 <txp:css format="link" name="default" />
 <style>
-code{color:yellowgreen}
-.hero {
-overflow: hidden;
-clear: both;
-height: 0;
-margin-bottom: 1.5em;
-padding-top: 56.25%;
-/* Fallback */
-background-image: url(<txp:image_url id="1" link="0" />);
-background-position: center center;
-background-repeat: no-repeat;
--webkit-background-size: cover;
--moz-background-size: cover;
-background-size: cover
-}
-.aside strong span{margin-right:-.07em}
-/* Multiple background for modern browsers */
-@supports (-webkit-background-clip:text){.hero{background-image: url(<txp:image_url id="1" link="0" />), url(<txp:php>
-$ext = image_info(array('id'=>'1','type'=>'ext'));
-echo "images/w_tiny27/1".$ext;
-</txp:php>)}
-}
 picture{min-height:35em}@media screen and (max-width: 661px){picture{min-height:20em}}
-.button-cart {
-float: right;
-margin: 1em 0 0 0;
-padding: .2em 1em;
-background: none;
-background: #f0f8ff;
-border: none;
-vertical-align: middle;
-font-size: 100%;
-cursor: pointer
-}
 </style>
 </head>
 <body>
@@ -94,7 +61,7 @@ cursor: pointer
 <txp:if_section name="contact">
 
 
-<txp:com_connect to="agence.caratm@gmail.com" label="" class="" copysender="1" show_error="1" form="contact_form_en" body_form="message_formatting_fr" thanks="Your message hab been send. You will receive an answer as soon as possible." />
+<txp:com_connect to="recipient@example.com" label="" class="" copysender="1" show_error="1" form="contact_form_en" body_form="message_formatting_fr" thanks="Your message hab been send. You will receive an answer as soon as possible." />
 
 
 </txp:if_section>
