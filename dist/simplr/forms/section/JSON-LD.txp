@@ -1,0 +1,157 @@
+<script type="application/ld+json">
+{ 
+	"@context": "http://schema.org",
+	"@type": "WebSite",
+	"url": "<txp:site_url escape="json" />",
+	"name": "<txp:site_name escape="json" />",
+	"description": "<txp:site_slogan escape="json" />",
+	"creator" : {
+		"@type": "Person",
+		"name": "<txp:author />",
+		"url": "<txp:if_article_list><txp:site_url escape="json" /><txp:else /><txp:author format="url" link="1" escape="json" /></txp:if_article_list>"
+	}
+/*! Add, delete, set your Social Network links below, then remove this comment line 
+		,"sameAs": [
+			"https:\/\/www.facebook.com\/your-profile",
+			"https:\/\/twitter.com\/your-profile",
+			"https:\/\/github.com\/your-profile",
+			"https:\/\/plus.google.com\/your-profile",
+			"https:\/\/in.linkedin.com\/in\/your-profile",
+			"https:\/\/www.youtube.com\/user\/your-profile"
+		]
+	}
+*/
+	<txp:if_section name="">,"potentialAction": {
+		"@type": "SearchAction",
+		"target": "<txp:site_url escape="json" />search\/?q={search_term_string}",
+		"query-input": "required name=search_term_string"
+	}</txp:if_section>
+}   
+</script>
+<script type="application/ld+json">
+{"@context":"http://schema.org","@type": "BreadcrumbList", 
+	"itemListElement": 
+	[<txp:variable name="JSON_counter" value="0" /><txp:section_list include_default="1" exclude="search,articles,sitemap,fb-instant-articles,comma,separated,list,of,sections,to,exclude" break=",">
+		{
+		"@type": "ListItem", 
+		"position": <txp:variable name="JSON_counter" value='<txp:evaluate query=''<txp:variable name="JSON_counter" /> + 1'' />' /><txp:variable name="JSON_counter" />, 
+		"item": { 
+			"@id": "<txp:section url="1" escape="json" />", 
+			"name": "<txp:section title="1" escape="json" />" 
+		}
+	}</txp:section_list>
+	]
+}
+</script>
+<txp:if_section name="default,blog"><txp:if_individual_article><script type="application/ld+json">
+{<txp:variable name="description" value='<txp:meta_description format="" escape="json" />' />
+	"@context": "http://schema.org",
+	"@type": "BlogPosting",
+	"mainEntityOfPage": "<txp:permlink />",
+	"headline": "<txp:title escape="json" />",
+	"datePublished": "<txp:posted gmt="1" format="iso8601" />",
+	"dateModified": "<txp:modified gmt="1" format="iso8601" />",
+	"description": "<txp:if_variable name="description" value=""><txp:excerpt escape="p,tidy" format="json" /><txp:else /><txp:variable name="description" /></txp:if_variable>",
+	"articleSection": "<txp:section title="1" escape="json" />",
+	<txp:if_article_category>"keywords": ["<txp:category1 title="1" link="0" />"<txp:if_article_category number="2">, "<txp:category2 title="1" link="0" />"</txp:if_article_category>],</txp:if_article_category>
+	"image": <txp:if_article_image><txp:images limit="1">{
+		"@type": "ImageObject",
+		"url": "<txp:image_url />",
+		"height": <txp:image_info type="h" />,
+		"width": <txp:image_info type="w" />
+	}</txp:images><txp:else />"<txp:site_url escape="json" />logo.jpg"</txp:if_article_image>,
+	"author": {
+		"@type": "Person",
+		"name": "<txp:author title="1" escape="json" />"
+	},
+	<txp:if_comments>"commentCount": <txp:comments_count />,
+<txp:comments form="" wraptag="" break="" class="">	"comment": {
+		"text": "<txp:comment_message escape="tidy,p" format="json" />",
+		"author": {
+			"@type": "Person",
+			"name": "<txp:comment_name link="0" escape="json" />"
+		}
+	},</txp:comments></txp:if_comments>	"publisher": {
+		"@type": "Organization",
+		"name": "<txp:site_name escape="json" />",
+		"logo": {
+			"@type": "ImageObject",
+			"url": "<txp:site_url escape="json" />img\/logo.jpg"
+		}
+	}
+}
+</script></txp:if_individual_article><txp:else /><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "name": "<txp:site_name escape="json" /> <txp:site_slogan escape="json" />",
+    "url": "<txp:site_url />",
+    "inLanguage": "<txp:lang />",
+    "description": "<txp:meta_description format="json" type="section" />",
+    <txp:if_individual_article>"mainEntity": {
+        "@type": "Article",
+        "@id": "<txp:section url="1" escape="json" />",
+        "datePublished": "<txp:posted gmt="1" format="iso8601" />",
+        "dateCreated": "<txp:posted gmt="1" format="iso8601" />",
+        "dateModified": "<txp:modified gmt="1" format="iso8601" />",
+        "mainEntityOfPage": "<txp:permlink escape="json" />",
+        "headline": "<txp:title />",
+        "image": <txp:images limit="1">{
+            "@type": "imageObject",
+            "url": "<txp:site_url escape="json" />img\/image.png",
+            "height": <txp:image_info type="h" />,
+            "width": <txp:image_info type="w" />
+        },</txp:images>
+        "author": {
+            "@type": "Person",
+            "name": "<txp:meta_author format="" title="1" escape="json" />"
+        },</txp:if_individual_article>
+        "publisher": {
+            "@type": "Organization",
+            "name": "<txp:site_name escape="json" />",
+            "logo": {
+                "@type": "imageObject",
+                "url": "<txp:site_url escape="json" />img\/logo.png"
+            }
+        }
+    }
+}
+</script></txp:if_section><txp:if_article_image><script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Photograph",
+    "mainEntityOfPage": "<txp:permlink escape="json" />",
+	"headline": "<txp:title escape="json" />",
+	"datePublished": "<txp:posted gmt="1" format="iso8601" />",
+	"dateModified": "<txp:modified gmt="1" format="iso8601" />",
+    "description": "<txp:if_description><txp:meta_description escape="json" format="" /><txp:else /><txp:if_excerpt><txp:excerpt escape="json" /><txp:else /><txp:title /></txp:if_excerpt></txp:if_description>",<txp:if_article_category>
+	"keywords": ["<txp:category1 title="1" link="0" />"<txp:if_article_category number="2">, "<txp:category2 title="1" link="0" />"</txp:if_article_category>],</txp:if_article_category><txp:if_article_image>
+	"image": [<txp:images limit="10" break=",">{
+		"@type": "ImageObject",
+		"url": "<txp:image_url escape="json" />",
+		"height": <txp:image_info type="h" />,
+		"width": <txp:image_info type="w" />
+	}</txp:images>],
+	</txp:if_article_image>"author": {
+		"@type": "Person",
+		"name": "<txp:author title="1" escape="json" />"
+	},
+	<txp:if_comments>"commentCount": <txp:comments_count />,
+<txp:comments form="" wraptag="" break="" class="">	"comment": {
+		"text": "<txp:comment_message escape="json" />",
+		"author": {
+			"@type": "Person",
+			"name": "<txp:comment_name link="0" escape="json" />"
+		}
+	},</txp:comments></txp:if_comments>	"publisher": {
+		"@type": "Organization",
+		"name": "<txp:site_name escape="json" />",
+		"logo": {
+			"@type": "ImageObject",
+			"url": "<txp:site_url escape="json" />img\/logo.jpg",
+			"height": 180,
+			"width": 180
+		}
+	}
+}
+</script></txp:if_article_image>

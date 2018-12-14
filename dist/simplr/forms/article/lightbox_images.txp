@@ -1,0 +1,11 @@
+<txp:hide>
+Dependencies: 'default' form
+</txp:hide>
+<txp:images break=""><figure class="aspect-ratio<txp:if_section name=""> mt6</txp:if_section> tiny">
+	<a href="<txp:image_url />" data-box="lightbox" data-title="<txp:image_info type="caption" escape="" />" title="Click to show"><picture>
+	<img src="<txp:image_url />" width="<txp:image_info type="w" />" height="<txp:image_info type="h" />" alt="<txp:image_info type="alt" />" lazyload="on" class="no-select" />
+</picture></a>
+	<txp:variable name="caption" value='<txp:image_info />' /><txp:if_variable name="caption" value=""><figcaption>
+		<txp:image_info type="caption" escape="" />
+	</figcaption></txp:if_variable>
+</figure></txp:images>

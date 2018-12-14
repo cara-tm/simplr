@@ -1,0 +1,6 @@
+	<div class="pages-pager <txp:evaluate test='<txp:newer />'>newer<txp:else /></txp:evaluate><txp:evaluate test='<txp:older />'>older<txp:else /></txp:evaluate>">
+	<txp:evaluate wraptag="p" class="paginator">
+	<span class="next-post<txp:evaluate test='<txp:newer />'> disabled<txp:else /></txp:evaluate>"><txp:newer rel="prev" showalways="1"><span><txp:text item="newer" /></span></txp:newer><svg width="32" height="32" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="icon"><path d="m10 5.9297l-1.5 1.5 4.5703 4.5703-4.5703 4.5703 1.5 1.5 6.0703-6.0703-6.0703-6.0703z"></path></svg></span>
+	<span class="prev-post<txp:evaluate test='<txp:older />'> disabled<txp:else /></txp:evaluate>"><svg width="32" height="32" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m13 5.9297l-6.0703 6.0703 6.0703 6.0703 1.5-1.5-4.5703-4.5703 4.5703-4.5703-1.5-1.5z"></path></svg><txp:older rel="next" showalways="1"><span><txp:text item="older" /></span></txp:older></span>
+	</txp:evaluate>
+	</div>

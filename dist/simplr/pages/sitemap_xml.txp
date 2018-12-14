@@ -1,0 +1,27 @@
+<txp:php>
+/**
+ * Sitemap creation for SEO.
+ * Use "exclude" to remove elements from the present file and
+ * set this end part for custom pages with lower priority (after the article_custom).
+ * @dependencies: "sitemap_pages", "sitepamp_categories" & "sitemap_articles" forms.
+ */
+</txp:php><txp:pat_speeder enable="1" gzip="0" /><txp:txp_header value="application/xml; charset=utf-8" /><?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<txp:section_list exclude="sitemap-rss,sitemap,fb-instant-articles,manifest,sitemap,contact,search" wraptag="" break="" form="sitemap_pages_xml" />
+<txp:article_custom section='<txp:section_list exclude="articles,search" wraptag="" break="" form="section_names" />' form="sitemap_articles_xml" limit="9999" status="live" /><txp:hide>
+<url>
+<loc><txp:site_url />mentions-legales</loc>
+<lastmod><txp:php>
+echo date( 'c', get_pref('sql_now_created') );
+</txp:php></lastmod>
+<changefreq>never</changefreq>
+<priority>0.10</priority>
+</url>
+<url>
+<loc><txp:site_url />contact</loc>
+<lastmod><txp:php>
+echo date( 'c', get_pref('sql_now_created') );
+</txp:php></lastmod>
+<changefreq>never</changefreq>
+<priority>0.10</priority>
+</url>
+</txp:hide></urlset>

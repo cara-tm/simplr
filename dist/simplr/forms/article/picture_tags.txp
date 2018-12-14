@@ -1,0 +1,7 @@
+<txp:hide>
+Dependencies: 'images' form
+</txp:hide>
+
+<picture><txp:images id="" break="">
+	<img src="<txp:image_url link='0' />" width="<txp:image_info type="w" />" height="<txp:image_info type="h" />" alt="<txp:image_info type='alt' />" lazyload="on" class="no-select" />
+</txp:images></picture>

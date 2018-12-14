@@ -1,0 +1,116 @@
+<txp:if_plugin name="pat_speeder"><txp:pat_speeder /></txp:if_plugin><txp:output_form form="doctype" />
+<txp:css format="link" name="default" />
+<style>
+code{color:yellowgreen}
+.hero {
+overflow: hidden;
+clear: both;
+height: 0;
+margin-bottom: 1.5em;
+padding-top: 56.25%;
+/* Fallback */
+background-image: url(<txp:image_url id="1" link="0" />);
+background-position: center center;
+background-repeat: no-repeat;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+background-size: cover
+}
+.aside strong span{margin-right:-.07em}
+/* Multiple background for modern browsers */
+@supports (-webkit-background-clip:text){.hero{background-image: url(<txp:image_url id="1" link="0" />), url(<txp:php>
+$ext = image_info(array('id'=>'1','type'=>'ext'));
+echo "images/w_tiny27/1".$ext;
+</txp:php>)}
+}
+picture{min-height:35em}@media screen and (max-width: 661px){picture{min-height:20em}}
+.button-cart {
+float: right;
+margin: 1em 0 0 0;
+padding: .2em 1em;
+background: none;
+background: #f0f8ff;
+border: none;
+vertical-align: middle;
+font-size: 100%;
+cursor: pointer
+}
+</style>
+</head>
+<body>
+
+<span class="fictiv-font"></span>
+
+<div class="wrapper" id="top">
+
+<txp:output_form form="menu_main" />
+
+	<main class="content"  aria-label="<txp:text item="main_content" />">
+
+		<txp:article_custom section='<txp:section />' limit="1">
+		<h1 class="title"><txp:title /></h2>
+		<txp:body />
+		</txp:article_custom>
+		
+
+
+<txp:if_section name="search">
+		<h2 class="title"><txp:text item="search_results" /></h2>
+
+<txp:if_search_results>
+
+	<txp:if_search_results max="200">
+		<h3 class="title"><txp:search_result_count /> <txp:text item="matching_search_request" />
+		<q><txp:search_term /></q>:</h3>
+	<txp:else />
+		<h3 class="title"><txp:text item="too_common_search_term" /> <q><txp:search_term /></q></h3>
+	</txp:if_search_results>
+
+
+<txp:else />
+		<h3 class="title"><txp:text item="no_search_matches" />.</h3>
+</txp:if_search_results>
+
+		<txp:article class="article-list" wraptag="ul" />
+
+
+<txp:if_search_results min="5">
+		<txp:output_form form"pages_pager" />
+</txp:if_search_results>
+
+
+</txp:if_section>
+
+
+<txp:if_author>
+		<h2><txp:text item="articles" /> <txp:text item="by" /> <txp:text item="author" /><b class="colon">:</b> <txp:author /></h2>
+		<txp:article class="article-list" wraptag="ul" limit="5" />
+
+		<txp:output_form form"pages_pager" />
+</txp:if_author>
+
+
+
+<txp:if_section name="contact">
+
+
+<txp:com_connect to="agence.caratm@gmail.com" label="" class="" copysender="1" show_error="1" form="contact_form_en" body_form="message_formatting_fr" thanks="Your message hab been send. You will receive an answer as soon as possible." />
+
+
+</txp:if_section>
+
+
+
+	</main> <!-- /content -->
+	
+	<div class="push"></div>
+
+</div> <!-- /wrapper -->
+
+<txp:output_form form="share" />
+
+<txp:output_form form="footer" />
+
+<txp:output_form form="js" />
+
+</body></html>

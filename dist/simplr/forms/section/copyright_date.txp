@@ -1,0 +1,12 @@
+<txp:php>
+/**
+ * Convert this website date creation 
+ * into readable copyright dates notice
+ */
+
+// This website date creation
+$timestamp = get_pref('sql_now_created');
+// The current year
+$now = date('Y', time());
+echo( ($timestamp < $now ? $timestamp.'-'.$now : $now) );
+</txp:php>

@@ -1,0 +1,43 @@
+<txp:if_plugin name="pat_speeder"><txp:pat_speeder /></txp:if_plugin><txp:output_form form="doctype" />
+<txp:css format="link" name="default,lightbox_min" />
+<style>
+code{color:#16a085}
+.aside-inner h1 span,.aside-inner strong span{margin-right:-.07em}
+.gallery{float:left;*display:inline;width:100%;clear:both;margin:0 0 3em}.tiny{float:left;clear:none;*display:inline;width:48%;*width:47%;margin:0 2% 2% 0 /*0 0 2% 0*/}.tiny a{display:block}.tiny:nth-child(0n+1){width:100%}.tiny img:nth-child(0n+1){/*max-height:26em*/}.tiny:nth-child(2n+0){margin-right:4%}.tiny:nth-child(3n+0){margin-right:-0%}@media screen and (max-width:661px){.gallery{margin:0 0 0 0}.tiny,.tiny:nth-child(0n+1){width:100%;margin:0 0 3em}}
+picture,#lightboxImage{filter:grayscale(1)}
+</style>
+</head>
+<body>
+
+<span class="fictiv-font"></span>
+
+<div class="wrapper" id="top">
+
+<txp:output_form form="menu_main" />
+
+	<main aria-label="<txp:text item="main_content" />" class="content">
+
+		<article class="float-l">
+
+		<txp:article limit="1" sort="Posted asc" />
+
+		</article>
+
+		<txp:output_form form="pages_pager" />
+
+	</main> <!-- /content -->
+	
+	
+	
+	<div class="push"></div>
+
+</div> <!-- /wrapper -->
+
+
+<txp:output_form form="share" />
+
+<txp:output_form form="footer" />
+
+<txp:output_form form="js" />
+
+</body></html>

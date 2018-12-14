@@ -1,0 +1,21 @@
+<txp:variable name="this_comment" value='<txp:comment_email />' />
+<txp:if_variable name="this_comment" value='<txp:author_email />'>
+	<article class="comments comments-author"><txp:else />
+	<article class="comments">
+</txp:if_variable>
+
+	<h4>
+	<span class="comment-author"><span itemprop="name"><txp:comment_name /></span></span>
+
+	<txp:if_variable name="this_comment" value='<txp:author_email />'><span class="is-author">(<txp:text item="author" />)</span></txp:if_variable>
+
+	<span class="comment-anchor"><txp:comment_permlink>#</txp:comment_permlink></span>
+	</h4>
+
+	<p class="footnote">
+		<time datetime="<txp:comment_time format="iso8601" />"><txp:comment_time /> (<txp:comment_time format="since" />)</time>
+	</p>
+
+	<div><txp:comment_message /></div>
+
+</article>

@@ -1,0 +1,4 @@
+	<div class="post-pager">
+		<span class="prev-post"><txp:link_to_next showalways="0"><svg width="32" height="32" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m13 5.9297l-6.0703 6.0703 6.0703 6.0703 1.5-1.5-4.5703-4.5703 4.5703-4.5703-1.5-1.5z"></path></svg><txp:text item="prev" /><b class="colon">:</b> <q><txp:next_title /></q></txp:link_to_next></span> 
+		<span class="next-post"><txp:link_to_prev showalways="0"><txp:text item="next" /><b class="colon">:</b> <q><txp:prev_title /></q><svg width="32" height="32" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="icon"><path d="m10 5.9297l-1.5 1.5 4.5703 4.5703-4.5703 4.5703 1.5 1.5 6.0703-6.0703-6.0703-6.0703z"></path></svg></txp:link_to_prev></span>
+	</div>

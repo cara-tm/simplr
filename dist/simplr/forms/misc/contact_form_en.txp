@@ -1,0 +1,38 @@
+	<txp:com_connect_email name="email" label="Email Address" class="input-txt" break="" required="1" autofocus="true" autocomplete="on" lang="en" />
+	<txp:com_connect_text name="phone" label="Phone (optional)" class="input-txt" break="" required="0" autocomplete="on" min="7" max="15" lang="en" />
+	<txp:com_connect_select name="project" label="What is your project? (optional)" options="Choose from le list below…,Website creation,Website redesign,Website adaptation for mobile devices,Search Engines Optimisation,Formation,Other (Please specify in your message)" selected="Choose from the list below…" class="input-txt" break="" required="0" lang="en" />
+	<txp:com_connect_select name="delay" label="Your deadline for this project? (optional)" options="Choose from the list below…,Next month,In two months,In three months,More (Please specify in your message)" selected="Choose from the list below…" class="input-txt" break="" required="0" lang="en" />
+	<txp:com_connect_text type="url" name="website" label="Your current website (optional)" placeholder="http://" class="input-txt" break="" required="0" />
+	<txp:com_connect_textarea name="message" label="Message" rows="5" class="input-txt" break="" required="1" lang="en" />
+<txp:hide>
+<label class="gdpr comRequired" for="invalid">GPRD consent <a rel="noreferrer" href="https://www.cnil.fr/en/rights-and-obligations" target="_blank">Infos</a> <txp:com_connect_checkbox required="1" label="" label_position="" class="bot" /></label>
+</txp:hide>
+<txp:php>
+/**
+ * Get browser language, given an array of avalaible languages.
+ * 
+ * @param  [array]   $availableLanguages  Avalaible languages for the site
+ * @param  [string]  $default             Default language for the site
+ * @return [string]                       Language code/prefix
+ */
+function get_browser_language( $available = [], $default = 'en' ) {
+	if ( isset( $_SERVER[ 'HTTP_ACCEPT_LANGUAGE' ] ) ) {
+		$langs = explode( ',', $_SERVER['HTTP_ACCEPT_LANGUAGE'] );
+    if ( empty( $available ) ) {
+      return $langs[ 0 ];
+    }
+		foreach ( $langs as $lang ){
+			$lang = substr( $lang, 0, 2 );
+			if( in_array( $lang, $available ) ) {
+				return '<label class="gdpr comRequired" for="invalid">GPRD consent <a rel="noreferrer" href="https://www.cnil.fr/en/rights-and-obligations" target="_blank">Infos</a> '.com_connect_checkbox(array('required'=>1,'label'=>'','label_position'=>'','class'=>'gdpr')).'</label>';
+			}
+		}
+	}
+	return '';
+}
+// Change 2 digits European country code members if necessary
+echo get_browser_language($available = ['at','be','bg','hr','cz','cy','dk','ee','fi','fr','de','el','hu','ie','it','lv','lt','lu','mt','nl','pl','pt','sk','si','es','se','gb','uk']);
+</txp:php>
+	<txp:com_connect_submit label="Send" lang='<txp:lang />' />
+	<input type="reset" label="Reset" lang='<txp:lang />' class="button" />
+	

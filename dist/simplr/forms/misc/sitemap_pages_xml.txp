@@ -1,0 +1,8 @@
+<url>
+<loc><txp:section link="0" url="1" /></loc>
+<lastmod><txp:php>
+echo date( 'c',  strtotime(get_pref('lastmod')) );
+</txp:php></lastmod>
+<changefreq>monthly</changefreq>
+<priority>1.00</priority>
+</url>
