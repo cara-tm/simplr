@@ -37,6 +37,8 @@ The `white-loader-min.gif` file is to be stored into an `img` directory.
 
 Finally, upload the `simplr` directory and all its content into your `/themes` folder available in the root of your server.
 
+Note: the custom fonts will not be displayed within some devices neither the javascript "Lightbox" voluntarily to reduce the amount on bytes to serve to small screens.
+
 Access to your Textpattern administration interface and activate the `Simplr` theme from the Themes panel (see official documentation for further informations).
 
 You will need to create some sections from the Sections panel:
