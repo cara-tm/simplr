@@ -1,9 +1,0 @@
-<txp:php>
-/**
- * Count and return the number of IDs into the 'Article image' field
- */
-$list = custom_field(array('name'=>'article_image'));
-$nb = explode(',', $list);
-$nb = count($nb);
-echo( ($nb > 1 ? '<span>Total: '.$nb.' photos.</span>' : '') );
-</txp:php>
