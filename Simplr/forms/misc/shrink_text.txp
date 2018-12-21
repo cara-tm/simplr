@@ -1,0 +1,33 @@
+<txp:php>
+/**
+ * Strip a text in a number of plain words followed by hyphen
+ */
+// Number of characters
+$length = 255;
+// Strip all HTML tags?
+$strip_html = false;
+
+// Do not change anything below
+
+// Sanitize body article.
+$input = body(array());
+// Strip tags, if desired.
+if ($strip_html) {
+	$input = strip_tags($input);
+}
+// Trim if longer than trim length.
+if (strlen($input) > $length) {
+	// Special signs found?
+	if (in_array(substr($input, $length, 1), array(' ', '.', ',', ';', ':', '!', '?'))) {
+		// Remove last special sign, add hellips.
+		echo substr(trim($input, '.'), 0, $length - 1).'...';
+
+	} else {
+		// No special signs, add hellips.
+		echo substr($input, 0, $length).'...';
+	}
+} else {
+	// No need to trim, already shorter than trim length.
+	echo $input;
+}
+</txp:php>

@@ -1,0 +1,21 @@
+<txp:hide>
+Dependencies: 'default' form
+</txp:hide>
+<txp:variable name="caption" value='<txp:image_info escape="" />' />
+<txp:if_variable name="caption" value=""><figure class="aspect-ratio">
+	<a href="<txp:permlink />"><txp:output_form form="picture_tags" /></a>
+</figure><txp:else />
+<figure class="aspect-ratio<txp:if_section name=""> mt6</txp:if_section>">
+	<a href="<txp:permlink />"><txp:output_form form="picture_tags" /></a>
+	<figcaption>
+		<txp:php>
+/**
+ * Count and return the number of IDs into the 'Article image' field
+ */
+$list = custom_field(array('name'=>'article_image'));
+$nb = explode(',', $list);
+$nb = count($nb);
+echo( ($nb > 1 ? '<span>Total: '.$nb.' photos.' : '') );
+</txp:php></span> <txp:image_info escape="" />
+	</figcaption>
+</figure></txp:if_variable>

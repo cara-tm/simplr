@@ -1,0 +1,1 @@
+<txp:evaluate query='<txp:comments_count /> > 1'><txp:text item="comments" /><txp:else /><txp:text item="comment" /></txp:evaluate>

@@ -1,0 +1,53 @@
+<txp:php>
+/**
+ * RSS sitemap creation. To be used in conjunction with an xml sitemap.
+ * Only most recent pages will be added. Dates comparisons are made from today and 
+ * the last modified article (or its publishing date), otherwise a blank page with
+ * a '304 Not Modified' header will be send to bots.
+ *
+ * Set the section names you wish into <txp:article_custom section="articles" below
+ * (section names within a comma separated list allowed).
+ *
+ * @dependency: 'sitemap_articles_rss' form
+ * @date:       01 January 2017
+ * @revision:   03 January 2017
+ */
+
+// Setting headers
+header("Cache-Control: Public, max-age=900, must-revalidate, s-maxage=600, proxy-revalidate");
+header("X-Robots-Tag: noindex, nosnippet, noarchive, noodp");
+header("X-Powered-By: Textpattern CMS");
+
+// Extract the last row from the "textpattern" table.
+$rs = safe_row("LastMod", 'textpattern', "1 = 1 ORDER BY LastMod DESC LIMIT 1");
+
+// Dates format: PHP 5.2.16 minimum required.
+$now = new DateTime(date("Ymd"));
+$now = $now->format('Ymd');
+$last = new DateTime($rs['LastMod']);
+$last = $last->format('Ymd');
+
+// No new articles, send a blank page with '304 Not Modified' header to bots
+if ( $now > $last ) {
+	header("HTTP/1.1 304 Not Modified");
+	header("Status: 304 Not Modified");
+	exit();
+}
+
+header('Last-Modified: "'.$rs['LastMod'].'"');
+
+</txp:php><txp:txp_header value="application/xml; charset=utf-8" /><?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+	<channel>
+		<title><txp:site_name /></title>
+		<link><txp:site_url /></link>
+		<description><txp:site_name /> <txp:site_slogan /></description>
+		<generator>TXP Sitemap Generator</generator>
+		<lastBuildDate><txp:php>
+		/**
+		 * Extract last update site timestamp from the 'prefs' table.
+		 *
+		 */
+		echo safe_strftime( 'rfc822', strtotime(get_pref('lastmod')) );
+		</txp:php></lastBuildDate><txp:article_custom section="blog" month="today" time="+1 day" limit="20" form="sitemap_articles_rss" status="live" /></channel>
+</rss>
