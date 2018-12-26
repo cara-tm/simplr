@@ -1,4 +1,4 @@
-	<txp:com_connect_email name="email" label="Email Address" class="input-txt" break="" required="1" autofocus="true" autocomplete="on" lang='<txp:lang />' />
+	<txp:com_connect_email name="email" label="Email Address (required)" class="input-txt" break="" required="1" autofocus="true" autocomplete="on" lang='<txp:lang />' />
 	<txp:com_connect_text name="phone" label="Phone (optional)" class="input-txt" break="" required="0" autocomplete="on" min="7" max="15" lang='<txp:lang />' />
 <txp:com_connect_textarea name="message" label="Your Message (required)" class="" break="" required="1" />
 <txp:php>

@@ -4,9 +4,9 @@
  *
  * Simplr Textpattern CMS theme
  *
- * @version  2.0
+ * @version  2.1
  * @date     2018/12/14
- * @revision 201/12/21
+ * @revision 201/12/26
  * @file     Global CSS rules (number of lines: 2379)
  * @author   Patrick LEFEVRE <patrick[dot]lefevre[at]gmail[dot]com>
  * @licence  GPL2
@@ -19,9 +19,12 @@
 	font-size: 3vmax
 }
 
+html .bg-gray {background: #ddd}
+
 html {
 	margin: 0;
 	padding: 0;
+	font-size: 108%;
 	line-height: 1.15;
 	-ms-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
@@ -77,7 +80,8 @@ hr {
 }
 
 a {
-	background-color: transparent
+	background-color: transparent;
+	color: #333
 }
 
 a:focus {
@@ -135,6 +139,22 @@ sup {
 	top: -.5em
 }
 
+code {
+	vertical-align: baseline;
+	word-break: keep-all;
+	overflow-wrap: break-word;
+	font-family: Menlo, Consolas, 'Roboto Mono', 'Ubuntu Monospace', 'Noto Mono', 'Oxygen Mono', 'Liberation Mono', monospace;
+	font-size: 1em
+}
+
+.emoji {
+	background-color: #ffdc00;
+	background-color: hsla(360, 100%, 100%, 0);
+	background-clip: text;
+	-webkit-background-clip: text;
+	text-shadow: 0 0 0 #ffdc00
+}
+
 kbd {
 	margin: 0 .25rem;
 	padding: .0625rem .5rem;
@@ -169,6 +189,14 @@ audio,
 canvas,
 video {
 	display: inline-block
+}
+
+iframe,
+object,
+video {
+	display: block;
+	max-width: 100%;
+	margin: 1em auto
 }
 
 figure {
@@ -221,14 +249,6 @@ svg foreignObject img {
 	width: auto
 }
 
-.emoji {
-	background-color: #ffdc00;
-	background-color: hsla(360, 100%, 100%, 0);
-	background-clip: text;
-	-webkit-background-clip: text;
-	text-shadow: 0 0 0 #ffdc00
-}
-
 @supports (display:flex) {
 
 	svg foreignObject {
@@ -258,7 +278,7 @@ summary {
 	min-height: 100%;
 	height: auto!important;
 	height: 100%;
-	margin: 0 auto -195px;
+	margin: 0 auto -250px;
 	text-align: left
 }
 
@@ -328,6 +348,11 @@ ol {
 	margin-bottom: 1.5rem
 }
 
+.article-list {
+	float: left;
+	padding-left: 0
+}
+
 ul li,
 ol li {
 	line-height: 1.5
@@ -339,13 +364,6 @@ ul ol,
 ol ol {
 	margin-top: 0;
 	margin-bottom: 0
-}
-
-code {
-	vertical-align: baseline;
-	word-break: break-all;
-	font-family: Menlo, Consolas, 'Roboto Mono', 'Ubuntu Monospace', 'Noto Mono', 'Oxygen Mono', 'Liberation Mono', monospace;
-	font-size: 1em
 }
 
 :lang(fr) .colon {
@@ -364,7 +382,8 @@ blockquote {
 }
 
 q {
-	quotes: '“\2060' '\2060”'
+	quotes: '“\2060' '\2060”';
+	margin-left: .2em
 }
 
 :lang(fr) q {
@@ -389,11 +408,13 @@ html blockquote[lang="fr"] p:after {
 	content: '\2060 \00BB'
 }
 
-:lang(en) blockquote:before {
+:lang(en) blockquote:before,
+blockquote:lang(en):before {
 	content: '“\2060'
 }
 
-:lang(en) blockquote p:after {
+:lang(en) blockquote p:after,
+blockquote:lang(en) p:after {
 	content: '\2060”'
 }
 
@@ -420,11 +441,8 @@ blockquote p:after {
 
 blockquote:before {
 	position: absolute;
-	top: 0
-}
-
-blockquote:before {
-	left: -.5em
+	top: 0;
+left: -.5em
 }
 
 blockquote p:after {
@@ -544,6 +562,7 @@ table th {
 	overflow-x: hidden;
 	float: left;
 	position: absolute;
+	position: -ms-device-fixed;
 	z-index: 2;
 	top: 1em;
 	left: 0;
@@ -605,6 +624,13 @@ table th {
 	display: table-cell;
 	width: 100%;
 	padding: 0;
+	vertical-align: middle
+}
+
+.aside-inner:before {
+	content: '';
+	display: inline-block;
+	height: 100%;
 	vertical-align: middle
 }
 
@@ -699,30 +725,28 @@ table th {
 	*display: inline;
 	width: 100%;
 	clear: both;
-	margin: 0 0 3em
+	margin: 0 0 1.5em
 }
 
 .tiny {
+	display: grid;
 	float: left;
 	clear: none;
 	*display: inline;
 	width: 48%;
 	*width: 47%;
-	margin: 0 2% 4% 0
+	margin: 0 2% 2% 0
 }
+
+.full {width: 100%}
 
 .tiny a {
 	display: block;
 	cursor: zoom-in
 }
 
-.tiny:nth-child(0n+1) {width: 100%}
-
-.tiny:nth-child(2n+0) {margin-right: 4%}
-
-.tiny:nth-child(3n+0) {margin-right:-0%}
-
-picture{
+picture {
+	grid-area: 1/1/2/2;
 	position: relative;
 	width: 100%;
 	min-height:27.4em
@@ -781,11 +805,6 @@ picture{
 
 }
 
-picture {
-	position: relative;
-	width: 100%
-}
-
 @supports (display:flex) {
 
 	.aspect-ratio img {
@@ -832,7 +851,8 @@ figcaption span {
 	float: left;
 	clear: both;
 	width: 95%;
-	padding: 0
+	padding: 0;
+	word-break: break-all
 }
 
 .footer li {
@@ -842,15 +862,19 @@ figcaption span {
 	white-space: nowrap
 }
 
-.footer li a {
-	color: #333
+.footer li::after {
+	content: ' |';
+	margin-right: -.2em
+}
+.footer li:last-child::after {
+	content: ''
 }
 
 .push,
 .footer {
 	float: left;
 	width: 100%;
-	height: 195px;
+	height: 250px;
 	text-align: left
 }
 
@@ -1022,10 +1046,6 @@ figcaption span {
 	width: 100%
 }
 
-.metas a {
-	
-}
-
 .copy-click.is-copied {
 	background-color: yellow
 }
@@ -1037,7 +1057,9 @@ figcaption span {
 }
 
 .more {
-	word-spacing: 0;
+	display: block;
+	margin-bottom: 3em;
+	word-spacing: normal;
 	line-height: 4.25
 }
 
@@ -1103,11 +1125,14 @@ label {
 	word-spacing: 0
 }
 
+input {height: 2em}
+
 input,
 textarea {
 	width: 98%;
 	padding: 0 5px;
 	border: none;
+	border:1px solid #ddd;
 	line-height: 2;
 	font-size: 1em;
 	font-family: sans-serif
@@ -1170,7 +1195,7 @@ input.button,
 	float: right;
 	width: auto;
 	margin: 1em 1% 0 1em;
-	padding: 0 1em .15em;
+	padding: 0 1em 2em;
 	background: none;
 	border: 3px solid #3c739c;
 	color: #3c739c;
@@ -1562,7 +1587,8 @@ input.button,
 	.tooltip:before,
 	.tooltip:after {
 		display: none;
-		word-spacing: 0
+		word-spacing: normal;
+		letter-spacing: normal
 	}
 
 	.tooltips .tooltip[data-tooltip]:before,
@@ -1690,7 +1716,7 @@ input.button,
 
 	.tooltip-bottom:before,
 	.tooltip-bottom:after {
-		top: 130%;
+		top: 160%;
 		bottom: auto;
 		left: 50%
 	}
@@ -1819,7 +1845,7 @@ html #gotop.visible {
  * ================
  * Tweet this rules
  */
-
+/*
 span[data-inline-tweet] {
 	display: inline-table;
 	padding-left: 5px;
@@ -1859,7 +1885,7 @@ span[data-inline-tweet] {
 	background-color: rgba(0, 172, 237, 0.1);
 	color: rgb(0, 172, 237)
 }
-
+*/
 
 /*! CSS Modal Box for all browsers by cara-tm.com - MIT license - https://github.com/cara-tm/modal_box */
 

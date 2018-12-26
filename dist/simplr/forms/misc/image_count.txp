@@ -5,5 +5,5 @@
 $list = custom_field(array('name'=>'article_image'));
 $nb = explode(',', $list);
 $nb = count($nb);
-echo( ($nb > 1 ? '<span>Total: '.$nb.' photos.</span>' : '') );
+echo( ($nb > 1 ? '<span>Total<b class="colon">:</b> '.$nb.' photos.</span>' : '') );
 </txp:php>

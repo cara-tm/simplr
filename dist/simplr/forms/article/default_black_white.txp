@@ -1,6 +1,9 @@
 <txp:if_different>
-<noscript id="deferred-styles"><style>picture,#lightboxImage{filter:grayscale(1)}</style></noscript>
-<script>var loadDeferredStyles=function(){var addStylesNode=document.getElementById("deferred-styles");var replacement=document.createElement("div");replacement.innerHTML=addStylesNode.textContent;document.body.appendChild(replacement);addStylesNode.parentElement.removeChild(addStylesNode);};var raf=window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame||window.msRequestAnimationFrame;if(raf)raf(function(){window.setTimeout(loadDeferredStyles,0);});else window.addEventListener('load',loadDeferredStyles);</script>
+	<txp:variable name="custom_styles" value="filter:grayscale(1)" />
+<txp:php>
+global $variable;
+$variable['full'] = (count(explode(',', custom_field(array('name'=>'article_image')))) > 1 ? '' : ' full');
+</txp:php>
 
 <txp:else /> 
 </txp:if_different>
@@ -14,10 +17,10 @@ $variable['first_pic'] = strtok(custom_field(array('name'=>'article_image')), ',
 </txp:php>
 		<txp:images form="images" limit="1" id='<txp:variable name="first_pic" />' break="">
 		<figure class="aspect-ratio">
-			<a href="<txp:permlink />">
-				<picture<txp:smd_if_thumbnail type="w_tiny27"> style="background:url(),url(<txp:smd_thumbnail type='w_tiny27' display='url' id='<txp:image_info type="id" />' />) center center no-repeat;background-size:100% 100%"</txp:smd_if_thumbnail>min-height:150px">
+			<a href="<txp:permlink />/" title="<txp:text item="read_more" />">
+				<picture<txp:smd_if_thumbnail type="w_tiny27"> style="<txp:variable name="custom_styles" />;background:url(),url(<txp:smd_thumbnail type='w_tiny27' display='url' id='<txp:image_info type="id" />' />) center center no-repeat;background-size:100% 100%;</txp:smd_if_thumbnail>min-height:150px">
 				<txp:if_plugin name="smd_thumbnail">
-					<img src="<txp:smd_thumbnail type='w_320' display='url' id='<txp:image_info type="id" />' />" 
+					<img src="<txp:smd_thumbnail type='w_320' display='url' id='<txp:image_info type="id" />' form="img_sizes" />" 
 			srcset="<txp:smd_thumbnail type='w_320' id='<txp:image_info type="id" />' form="img_srcset" />, 
 			<txp:smd_thumbnail type='w_980' id='<txp:image_info type="id" />' form="img_srcset" />, 
 			<txp:smd_thumbnail type='w_1280' id='<txp:image_info type="id" />' form="img_srcset" />" 
@@ -47,7 +50,8 @@ $variable['first_pic'] = strtok(custom_field(array('name'=>'article_image')), ',
 	<txp:else />
 		<p><txp:output_form form="shrink_text" /></p>
 	</txp:if_excerpt>
-	<span class="more"><a href="<txp:permlink />"><txp:text item="Continue reading" />&thinsp;&rarr;</a></span>
+	<span class="more"><a href="<txp:permlink />/"><txp:text item="continue_reading" />&thinsp;&rarr;</a></span>
+	<txp:if_last_article><txp:else /><hr class="bg-gray" /></txp:if_last_article>
 </div>
 
 <txp:else />

@@ -25,7 +25,7 @@
 
 	<txp:if_search_results max="200">
 		<h3 class="title"><txp:search_result_count /> <txp:text item="matching_search_request" />
-		<q><txp:search_term /></q>:</h3>
+		<q><txp:search_term /></q><b class="colon">:</b></h3>
 	<txp:else />
 		<h3 class="title"><txp:text item="too_common_search_term" /> <q><txp:search_term /></q></h3>
 	</txp:if_search_results>

@@ -5,7 +5,7 @@
 </txp:if_variable>
 
 	<h4>
-	<span class="comment-author"><span itemprop="name"><txp:comment_name /></span></span>
+	<span class="comment-author"><txp:comment_name /></span>
 
 	<txp:if_variable name="this_comment" value='<txp:author_email />'><span class="is-author">(<txp:text item="author" />)</span></txp:if_variable>
 

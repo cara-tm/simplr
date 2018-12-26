@@ -1,0 +1,171 @@
+/* Setting content width, unsetting floats and margins */
+
+*,*::before,
+*::after {
+background: transparent!important;
+box-shadow: none!important;
+color: #000000!important;
+text-shadow: none!important
+}
+.wrapper,
+.container,
+.row,.content {
+width: 100%; 
+margin: 0; 
+float: none
+}
+
+/** Setting margins */
+@page { margin: 2cm }
+
+
+/* Or: 
+@page :left {
+margin: 1cm;
+}
+
+@page :right {
+margin: 1cm;
+}
+*/
+
+/* The first page of a print can be manipulated as well */
+@page :first {
+  margin: 1cm 2cm
+}
+
+/* Set font to 16px/13pt, set background to white and font to black.*/
+/* This saves ink */
+body {
+font: 12pt Georgia, "Times New Roman", Times, serif;
+line-height: 1.2;
+background: #fff !important;
+color: #000
+}
+
+h1 {font-size: 24pt!important}
+
+h2, h3, h4, h5, h6 {
+font-size: 18pt!important;
+margin-top: 15px
+}
+
+/* Defining all page breaks */
+
+a {page-break-inside:avoid}
+
+blockquote {page-break-inside: avoid}
+
+h1, h2, h3, h4, h5, h6 {
+page-break-after:avoid;
+page-break-inside:avoid
+}
+
+img,
+picture,
+figure {
+page-break-inside: avoid;
+page-break-after: avoid
+}
+
+table, pre {page-break-inside:avoid}
+
+ul, ol, dl  {page-break-before:avoid}
+
+html figcaption span {
+float:left!important;
+text-align: left!important
+}
+
+/* Displaying link color and link behaviour */
+
+a:link,
+a:visited,
+a {
+background: transparent;
+color: #520;
+font-weight: bold;
+text-decoration: underline;
+text-align: left
+}
+
+a {page-break-inside:avoid}
+
+a[href^=http]:after {content:" < " attr(href) " > "}
+
+a:not(:local-link):after {content:" < " attr(href) " > "}
+
+a[href*=images]:after {content: ""}
+
+.title a:after,
+.more a:after,
+a.no-print:after,
+a:after img,
+.aspect-ratio a:after {content: ""!important}
+
+/**
+ * Making intergated videos disappear, and removing the iframes' whitespace to zero. 
+ */
+
+.entry iframe,
+ins {
+display: none;
+width: 0 !important;
+height: 0 !important;
+overflow: hidden !important;
+line-height: 0pt !important;
+white-space: nowrap
+}
+.embed-youtube,
+.embed-responsive,
+iframe,
+object,
+video,
+audio {
+  position: absolute;
+  height: 0;
+  overflow: hidden
+}
+
+/* Hiding unnecessary elements for the print */
+
+nav,
+aside,
+footer,
+.metas,
+hr,
+.more,
+.permalink,
+.tooltip,
+#comments-head,
+#comments-form,
+.post-pager,
+.pages-pager,
+.footer,
+.search,
+#gotop,
+.modal-dialog {
+display: none!important
+}
+
+/* Adding custom messages before and after the content */
+
+html .push:before {
+display: block;
+float: none;
+height: auto;
+width: 100%;
+content: "\ <txp:site_name /> All Rights Reserved. (c) <txp:output_form form="copyright_date" /> ";
+color: #999 !important;
+font-size: 1em;
+padding-top: 30px;
+}
+
+body:before {
+content: "\ Thank you for printing our article. We hope that some of our other articles can catch your eye as well. Remember that for ecological reasons and to preserve trees print sparingly and don't forget to recycle ♻️ \A You may start printing from page 2.";
+padding-top: 30px;
+white-space: pre-wrap;
+text-align: center !important;
+color: #777 !important;
+font-size: 1em
+}

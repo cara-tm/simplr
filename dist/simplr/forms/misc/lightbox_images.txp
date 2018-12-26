@@ -1,18 +1,9 @@
 <txp:images break="">
-		<figure class="aspect-ratio<txp:if_section name=""> mt6</txp:if_section> tiny">
-		
-		<txp:if_variable name="device" value="mobile"><txp:else /><a href="<txp:image_url />" data-box="lightbox" data-title="<txp:image_info type="caption" escape="" />" title="Click to show"></txp:if_variable>
+		<figure class="aspect-ratio<txp:if_section name=""> mt6</txp:if_section> tiny<txp:variable name="full" />">
+		<txp:if_variable name="device" value="mobile"><txp:else /><a href="<txp:image_url />" data-box="lightbox" data-title="<txp:image_info type="caption" escape="" />" title="<txp:text item="opens_external_link" />" class="no-print"></txp:if_variable>
 <txp:if_plugin name="smd_thumbnail">
-		<picture style="background:url(<txp:smd_thumbnail type='w_tiny27' display='url' id='<txp:image_info type="id" />' />) center center no-repeat;background-size:100% 100%;min-height:100%">
-			<img src="<txp:smd_thumbnail type='w_320' display='url' id='<txp:image_info type="id" />' />" 
-			srcset="<txp:smd_thumbnail type='w_320' id='<txp:image_info type="id" />' form="img_srcset" />, 
-			<txp:smd_thumbnail type='w_980' id='<txp:image_info type="id" />' form="img_srcset" />, 
-			<txp:smd_thumbnail type='w_1280' id='<txp:image_info type="id" />' form="img_srcset" />" 
-			sizes="(min-width: 1200px) 1140px, 
-			(min-width: 992px) 940px, 
-			(min-width: 768px) 720px, 
-			calc(100vw - 20px)" 
-			alt="<txp:image_info type='alt' />" />
+		<picture style="<txp:variable name="custom_styles" />;background:url(),url(<txp:smd_thumbnail type='w_tiny27' display='url' id='<txp:image_info type="id" />' />) center center no-repeat;background-size:100% 100%;min-height:150px">
+			<img src="<txp:smd_thumbnail type='w_320' display='url' id='<txp:image_info type="id" />' form="img_sizes" />" srcset="<txp:smd_thumbnail type='w_320' id='<txp:image_info type="id" />' form="img_srcset" />, <txp:smd_thumbnail type='w_980' id='<txp:image_info type="id" />' form="img_srcset" />, <txp:smd_thumbnail type='w_1280' id='<txp:image_info type="id" />' form="img_srcset" />" sizes="(min-width: 1200px) 1140px, (min-width: 992px) 940px, (min-width: 768px) 720px, calc(100vw - 20px)" intrinsicsize="3x2" alt="<txp:image_info type='alt' />" />
 		</picture>
 <txp:else />
 

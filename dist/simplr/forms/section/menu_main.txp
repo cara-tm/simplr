@@ -1,6 +1,6 @@
 	<div class="row">
 
-		<aside class="aside no-select">
+		<aside aria-label="<txp:text item="site_nav" />" class="aside no-select">
 			<div class="aside-outer">
 				<div class="aside-inner">
 				<txp:if_section name="">
@@ -14,7 +14,7 @@
 </txp:section_list>
 				</ul>
 				</nav>
-					<small>Social<b class="colon">:</b> <a href="#openShare" title="Share it!" class="button-share tooltip" aria-label="Share!" onclick="document.getElementById('openShare').style.display='block';return true;" aria-haspopup="true"><svg width="24" height="24" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><path d="m23 3a4 4 0 0 0 -4 4 4 4 0 0 0 0.09375 0.83594l-9.082 4.541a4 4 0 0 0 -3.0117 -1.377 4 4 0 0 0 -4 4 4 4 0 0 0 4 4 4 4 0 0 0 3.0137 -1.375l9.0762 4.5391a4 4 0 0 0 -0.089844 0.83594 4 4 0 0 0 4 4 4 4 0 0 0 4 -4 4 4 0 0 0 -4 -4 4 4 0 0 0 -3.0137 1.375l-9.0762-4.5391a4 4 0 0 0 0.089844 -0.83594 4 4 0 0 0 -0.09375 -0.83398l9.082-4.541a4 4 0 0 0 3.0117 1.375 4 4 0 0 0 4 -4 4 4 0 0 0 -4 -4z"></path><foreignObject width="24" height="0"><span>Share</span></foreignObject></svg></a></small>
+					<small>Social<b class="colon">:</b>&nbsp;<a href="#openShare" title="Share it!" class="button-share tooltip" aria-label="Share!" onclick="document.getElementById('openShare').style.display='block';return true;" aria-haspopup="true"><svg width="24" height="24" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><path d="m23 3a4 4 0 0 0 -4 4 4 4 0 0 0 0.09375 0.83594l-9.082 4.541a4 4 0 0 0 -3.0117 -1.377 4 4 0 0 0 -4 4 4 4 0 0 0 4 4 4 4 0 0 0 3.0137 -1.375l9.0762 4.5391a4 4 0 0 0 -0.089844 0.83594 4 4 0 0 0 4 4 4 4 0 0 0 4 -4 4 4 0 0 0 -4 -4 4 4 0 0 0 -3.0137 1.375l-9.0762-4.5391a4 4 0 0 0 0.089844 -0.83594 4 4 0 0 0 -0.09375 -0.83398l9.082-4.541a4 4 0 0 0 3.0117 1.375 4 4 0 0 0 4 -4 4 4 0 0 0 -4 -4z"></path><foreignObject width="24" height="0"><span>Share</span></foreignObject></svg></a></small>
 				</div> <!-- /nav-inner -->
 			</div> <!-- /aside-outer -->
 		</aside> <!-- /aside -->

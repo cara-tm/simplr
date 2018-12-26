@@ -1,11 +1,15 @@
 <txp:output_form form="mobiles_detection" /><!DOCTYPE html>
-<html prefix="og: http://ogp.me/ns#" lang="en" dir="<txp:text item="lang_dir" />" class="">
+<html prefix="og: http://ogp.me/ns#" lang="<txp:lang />" dir="<txp:text item="lang_dir" />" class="">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
 <meta charset="utf-8">
-<title><txp:site_name />: a Textpattern CMS theme</title>
+<title><txp:site_name /> <txp:site_slogan /></title>
 <txp:meta_description /><txp:if_keywords><txp:name="keywords" separator="," /></txp:if_keywords>
 <meta name="robots" content="<txp:if_expires>unavailable_after: <txp:expires gmt format="%d-%b-%y %T" /> GMT<txp:else />index, follow</txp:if_expires>">
+<txp:php>
+$parts = @parse_url(urldecode(hu));
+echo( ($parts['scheme'] == 'https' ? '<meta name="referrer" content="origin">' : '') );
+</txp:php>
 
 <meta name="robots" content="<txp:if_expires>unavailable_after: <txp:expires gmt format="%d-%b-%y %T" /> GMT<txp:else />index,follow,noodp,noydir</txp:if_expires>">
 <meta name="googlebot" content="<txp:if_expires>unavailable_after: <txp:expires gmt format="%d-%b-%y %T" /> GMT<txp:else />index,follow,noodp,noydir</txp:if_expires>">
@@ -13,10 +17,10 @@
 <meta name="referrer" content="origin">
 <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 <link rel="dns-prefetch" href="//google-analytics.com">
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Playfair+Display%7CLora%7CMontserrat:400,700" onload="this.rel='stylesheet'">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Lora%7CMontserrat:300,400,700" onload="this.rel='stylesheet'">
 <link rel="preload" as="style" href="<txp:css name="default" />" onload="this.rel='stylesheet'">
 
-<txp:if_section name=""><link rel="canonical" href="<txp:site_url />"><txp:else /><txp:if_article_list><link rel="canonical" href="<txp:section url />"><txp:else /><link rel="canonical" href="<txp:permlink />"></txp:if_article_list></txp:if_section>
+<txp:if_section name=""><link rel="canonical" href="<txp:site_url />"><txp:else /><txp:if_article_list><link rel="canonical" href="<txp:section url />"><txp:else /><link rel="canonical" href="<txp:permlink />/"></txp:if_article_list></txp:if_section>
 
 <!--[if IEMobile]><meta http-equiv="cleartype" content="on"><![endif]-->
 <!--[if IE 6]><meta http-equiv="imagetoolbar" content="no"><![endif]--> 
@@ -35,26 +39,37 @@
 <meta name="msapplication-TileColor" content="#555555">
 <meta name="theme-color" content="#555555">
 
-<script>document.documentElement.className="js "+(!document.createElementNS||!document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect?"nosvg":"svg");var arr=['article','aside','footer','figcaption','figure','header','nav','main','picture','section','template'];for(var i=0;i<arr.length;i++){document.createElement(arr[i]);};function inject(){var e=this.responseText,h=document.getElementsByTagName("head")[0],a=document.getElementsByTagName("meta")[0],s=document.createElement("style");s.media='screen';s.innerHTML=e;if("undefined"!==typeof s){h.insertBefore(h.appendChild(s),a)}}function loadFonts(U,t,w){if(w<(window.innerWidth||document.documentElement.clientWidth||document.getElementBbyTagName("body").clientWidth)){if(typeof console!="undefined"){console.time("Process");};var args=Array.prototype.slice.call(arguments,3),xhr=new XMLHttpRequest();xhr.ontimeout=function(){document.querySelector("html").classList.add("wf-inactive");console.error("The request for "+U+" timed out.")};xhr.onload=function(){if(xhr.readyState===4){if(xhr.status===200){inject.apply(xhr,args);document.querySelector("html").classList.add("wf-active");console.log("Fonts Loaded! class `.wf-active` added.");if(typeof console!="undefined"){console.timeEnd("Process");}}else{console.error(xhr.statusText);}}};xhr.open("GET",U,true);xhr.timeout=t;xhr.send(null);}}loadFonts("<txp:css format="url" name="fonts" />", 3500, 680);</script>
-<!-- https://fonts.googleapis.com/css?family=Playfair+Display%7CLora%7CMontserrat:400,700 -->
+<script>document.documentElement.className="js "+(!document.createElementNS||!document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect?"nosvg":"svg");var arr=['article','aside','footer','figcaption','figure','header','nav','main','picture','section','template'];for(var i=0;i<arr.length;i++){document.createElement(arr[i]);};function inject(){var e=this.responseText,h=document.getElementsByTagName("head")[0],a=document.getElementsByTagName("meta")[0],s=document.createElement("style");s.media='screen';s.textContent=e;if("undefined"!==typeof s){h.insertBefore(h.appendChild(s),a)}}function loadFonts(U,t,w){if(w<(window.innerWidth||document.documentElement.clientWidth||document.getElementBbyTagName("body").clientWidth)){if(typeof console!="undefined"){console.time("Process");};var args=Array.prototype.slice.call(arguments,3),xhr=new XMLHttpRequest();xhr.ontimeout=function(){console.error("The request for "+U+" timed out.")};xhr.onload=function(){if(xhr.readyState===4){if(xhr.status===200){inject.apply(xhr,args);document.querySelector("html").classList.add("wf-active");console.log("Fonts Loaded! class `.wf-active` added,");if(typeof console!="undefined"){console.timeEnd("Process");}}else{console.error(xhr.statusText);}}};xhr.open("GET",U,true);xhr.timeout=t;xhr.send(null);}}loadFonts("<txp:site_url />css/fonts.min.css", 3500, 680);</script>
+
 <noscript>
-<link href="https://fonts.googleapis.com/css?family=Playfair+Display%7CLora%7CMontserrat:400,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lora%7CMontserrat:300,400,700" rel="stylesheet">
 </noscript>
 
-<txp:css format="link" name="default,lightbox_min" />
+<link href="<txp:site_url />css/default.min.css" rel="stylesheet">
+<txp:css name="print" media="print" format="link" />
 
-<txp:article_custom section='<txp:section />' id='<txp:article_id />' limit="1" sort="Posted asc"><txp:images limit="1" break=""><txp:if_plugin name="smd_thumbnail"><meta property="og:image" content="<txp:smd_thumbnail type="fb_share"><txp:smd_thumbnail_info item="url" /></txp:smd_thumbnail>">
-<meta property="og:image:width" content="<txp:smd_thumbnail type="fb_share"><txp:smd_thumbnail_info item="w" /></txp:smd_thumbnail>">
-<meta property="og:image:height" content="<txp:smd_thumbnail type="fb_share"><txp:smd_thumbnail_info item="h" /></txp:smd_thumbnail>"><txp:else /><meta property="og:image" content="<txp:image_url link="0" />">
+<txp:article_custom section='<txp:if_section name="">blog<txp:else /><txp:section /></txp:if_section>' id='<txp:article_id />' limit="1" sort="Posted asc"><txp:images limit="1" break=""><txp:if_plugin name="smd_thumbnail"><txp:smd_thumbnail type="social_share"><meta property="og:image" content="<txp:smd_thumbnail_info item="url" />">
+<meta property="og:image:width" content="<txp:smd_thumbnail_info item="w" />">
+<meta property="og:image:height" content="<txp:smd_thumbnail_info item="h" />">
+<meta property="og:image:alt" content="<txp:smd_thumbnail_info item="alt" />"></txp:smd_thumbnail><txp:else /><meta property="og:image" content="<txp:image_url link="0" />">
 <meta property="og:image:width" content="<txp:image_info type="w" />">
-<meta property="og:image:height" content="<txp:image_info type="h" />"></txp:if_plugin></txp:images></txp:article_custom><txp:if_description><meta property="og:description" content="<txp:output_form form="description_limited" />"></txp:if_description>
-<meta property="og:title" content="<txp:if_article_list><txp:site_name /><txp:else /><txp:title /></txp:if_article_list>">
-<meta property="og:url" content="<txp:if_section name=""><txp:site_url /><txp:else /><txp:if_article_list><txp:section url /><txp:else /><txp:permlink /></txp:if_article_list></txp:if_section>">
+<meta property="og:image:height" content="<txp:image_info type="h" />">
+<meta property="og:image:alt" content="<txp:image_info type="alt" />"></txp:if_plugin></txp:images></txp:article_custom><txp:if_description><meta property="og:description" content="<txp:output_form form="description_limited" />"></txp:if_description>
+<meta property="og:title" content="<txp:if_article_list><txp:site_name /> <txp:site_slogan /><txp:else /><txp:title /></txp:if_article_list>">
+<meta property="og:url" content="<txp:if_section name=""><txp:site_url /><txp:else /><txp:if_article_list><txp:section url /><txp:else /><txp:permlink />/</txp:if_article_list></txp:if_section>">
+<txp:if_individual_article>
+<!-- Get your fb user ID, then uncomment this line: https://findmyfbid.com/
+<meta property="fb:pages" content="{FB_DESTINATION_PAGE_ID}">
+
+<meta property="ia:markup_url" content="<txp:site_url escape="" />fb-instant-articles">
+-->
+<meta property="ia:rules_url_dev" content="<txp:site_url escape="" />fb-instant-articles">
+</txp:if_individual_article>
 <meta property="og:type" content="website">
-<meta property="og:locale" content="<txp:lang />">
+<meta property="og:locale" content="en_US">
 <meta property="og:updated_time" content="<txp:php>echo strtotime(get_pref('lastmod'));</txp:php>">
-<!-- Get your fb user ID, then uncomment this line: https://www.quora.com/How-do-I-find-my-Facebook-user-ID 
-<meta property="fb:app_id" content="1234567890"> -->
+<!-- Get your fb app ID, then uncomment this line: https://developers.facebook.com/docs/apps/ -->
+<meta property="fb:app_id" content="702400866"> 
 
 <txp:feed_link flavor="atom" format="link" label="Atom" />
 <txp:feed_link flavor="rss" format="link" label="RSS" />
