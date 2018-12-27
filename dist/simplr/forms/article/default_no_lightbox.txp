@@ -1,3 +1,10 @@
+<txp:php>
+global $variable;
+$variable['full'] = (count(explode(',', custom_field(array('name'=>'article_image')))) > 1 ? '' : ' full');
+// Overwrite the variable in order to not load the Lightbox script
+$variable['device'] = 'mobile';
+</txp:php>
+
 <txp:if_article_list>
 
 	<txp:if_article_image><txp:php>

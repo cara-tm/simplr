@@ -18,7 +18,10 @@ echo( ($parts['scheme'] == 'https' ? '<meta name="referrer" content="origin">' :
 <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 <link rel="dns-prefetch" href="//google-analytics.com">
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Lora%7CMontserrat:300,400,700" onload="this.rel='stylesheet'">
+<!--
 <link rel="preload" as="style" href="<txp:css name="default" />" onload="this.rel='stylesheet'">
+-->
+<link rel="preload" as="style" href="<txp:site_url />css/default.min.css" onload="this.rel='stylesheet'">
 
 <txp:if_section name=""><link rel="canonical" href="<txp:site_url />"><txp:else /><txp:if_article_list><link rel="canonical" href="<txp:section url />"><txp:else /><link rel="canonical" href="<txp:permlink />/"></txp:if_article_list></txp:if_section>
 
@@ -28,9 +31,10 @@ echo( ($parts['scheme'] == 'https' ? '<meta name="referrer" content="origin">' :
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="generator" content="Textpattern CMS">
 
-<!-- Blank favicon, change to reflect yours (Best free tool: https://realfavicongenerator.net/) 
-<link href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII=" rel="icon" type="image/x-icon"> -->
+<!-- Blank favicon, change to reflect yours (Best free tool: https://realfavicongenerator.net/) -->
+<link href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII=" rel="icon" type="image/x-icon">
 
+<!-- Sample:
 <link rel="apple-touch-icon" sizes="180x180" href="<txp:site_url />apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="<txp:site_url />favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="<txp:site_url />favicon-16x16.png">
@@ -38,8 +42,9 @@ echo( ($parts['scheme'] == 'https' ? '<meta name="referrer" content="origin">' :
 <link rel="mask-icon" href="<txp:site_url />safari-pinned-tab.svg" color="#555555">
 <meta name="msapplication-TileColor" content="#555555">
 <meta name="theme-color" content="#555555">
+-->
 
-<script>document.documentElement.className="js "+(!document.createElementNS||!document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect?"nosvg":"svg");var arr=['article','aside','footer','figcaption','figure','header','nav','main','picture','section','template'];for(var i=0;i<arr.length;i++){document.createElement(arr[i]);};function inject(){var e=this.responseText,h=document.getElementsByTagName("head")[0],a=document.getElementsByTagName("meta")[0],s=document.createElement("style");s.media='screen';s.textContent=e;if("undefined"!==typeof s){h.insertBefore(h.appendChild(s),a)}}function loadFonts(U,t,w){if(w<(window.innerWidth||document.documentElement.clientWidth||document.getElementBbyTagName("body").clientWidth)){if(typeof console!="undefined"){console.time("Process");};var args=Array.prototype.slice.call(arguments,3),xhr=new XMLHttpRequest();xhr.ontimeout=function(){console.error("The request for "+U+" timed out.")};xhr.onload=function(){if(xhr.readyState===4){if(xhr.status===200){inject.apply(xhr,args);document.querySelector("html").classList.add("wf-active");console.log("Fonts Loaded! class `.wf-active` added,");if(typeof console!="undefined"){console.timeEnd("Process");}}else{console.error(xhr.statusText);}}};xhr.open("GET",U,true);xhr.timeout=t;xhr.send(null);}}loadFonts("<txp:site_url />css/fonts.min.css", 3500, 680);</script>
+<script>document.documentElement.className="js "+(!document.createElementNS||!document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect?"nosvg":"svg");var arr=['article','aside','footer','figcaption','figure','header','nav','main','picture','section','template'];for(var i=0;i<arr.length;i++){document.createElement(arr[i]);};function inject(){var e=this.responseText,h=document.getElementsByTagName("head")[0],a=document.getElementsByTagName("meta")[0],s=document.createElement("style");s.media='screen';s.textContent=e;if("undefined"!==typeof s){h.insertBefore(h.appendChild(s),a)}}function loadFonts(U,t,w){if(w<(window.innerWidth||document.documentElement.clientWidth||document.getElementBbyTagName("body").clientWidth)){if(typeof console!="undefined"){console.time("Process");};var args=Array.prototype.slice.call(arguments,3),xhr=new XMLHttpRequest();xhr.ontimeout=function(){console.error("The request for "+U+" timed out.")};xhr.onload=function(){if(xhr.readyState===4){if(xhr.status===200){inject.apply(xhr,args);document.querySelector("html").classList.add("wf-active");console.log("Fonts Loaded! class `.wf-active` added,");if(typeof console!="undefined"){console.timeEnd("Process");}}else{console.error(xhr.statusText);}}};xhr.open("GET",U,true);xhr.timeout=t;xhr.send(null);}}loadFonts('<txp:css name="fonts" media="screen" format="url" />', 3500, 680);</script>
 
 <noscript>
 <link href="https://fonts.googleapis.com/css?family=Lora%7CMontserrat:300,400,700" rel="stylesheet">
@@ -48,15 +53,33 @@ echo( ($parts['scheme'] == 'https' ? '<meta name="referrer" content="origin">' :
 <link href="<txp:site_url />css/default.min.css" rel="stylesheet">
 <txp:css name="print" media="print" format="link" />
 
+<meta property="og:type" content="website">
+<txp:if_article_list><meta property="og:title" content="<txp:site_name /> <txp:site_slogan />">
+<meta property="twitter:title" content="<txp:site_name /> <txp:site_slogan />">
+<txp:else /><meta property="og:title" content="<txp:title no_widow="0" />"><meta property="twitter:title" content="<txp:title no_widow="0" />"></txp:if_article_list>
+<txp:if_section name=""><meta property="og:url" content="<txp:site_url />">
+<meta property="twitter:url" content="<txp:site_url />"><txp:else /><txp:if_article_list><meta property="og:url" content="<txp:section url />">
+<meta property="twitter:url" content="<txp:section url />"><txp:else /><meta property="og:url" content="<txp:permlink />/">
+<meta property="twitter:url" content="<txp:permlink />/"></txp:if_article_list></txp:if_section>
+<txp:if_description><meta property="og:description" content="<txp:output_form form="description_limited" />">
+<meta property="twitter:description" content="<txp:output_form form="description_limited" />"></txp:if_description>
 <txp:article_custom section='<txp:if_section name="">blog<txp:else /><txp:section /></txp:if_section>' id='<txp:article_id />' limit="1" sort="Posted asc"><txp:images limit="1" break=""><txp:if_plugin name="smd_thumbnail"><txp:smd_thumbnail type="social_share"><meta property="og:image" content="<txp:smd_thumbnail_info item="url" />">
 <meta property="og:image:width" content="<txp:smd_thumbnail_info item="w" />">
 <meta property="og:image:height" content="<txp:smd_thumbnail_info item="h" />">
-<meta property="og:image:alt" content="<txp:smd_thumbnail_info item="alt" />"></txp:smd_thumbnail><txp:else /><meta property="og:image" content="<txp:image_url link="0" />">
+<meta property="og:image:alt" content="<txp:smd_thumbnail_info item="alt" />">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:image" content="<txp:smd_thumbnail_info item="url" />">
+<meta property="twitter:image:alt" content="<txp:smd_thumbnail_info item="alt" />">
+</txp:smd_thumbnail><txp:else /><meta property="og:image" content="<txp:image_url link="0" />">
 <meta property="og:image:width" content="<txp:image_info type="w" />">
 <meta property="og:image:height" content="<txp:image_info type="h" />">
-<meta property="og:image:alt" content="<txp:image_info type="alt" />"></txp:if_plugin></txp:images></txp:article_custom><txp:if_description><meta property="og:description" content="<txp:output_form form="description_limited" />"></txp:if_description>
-<meta property="og:title" content="<txp:if_article_list><txp:site_name /> <txp:site_slogan /><txp:else /><txp:title /></txp:if_article_list>">
-<meta property="og:url" content="<txp:if_section name=""><txp:site_url /><txp:else /><txp:if_article_list><txp:section url /><txp:else /><txp:permlink />/</txp:if_article_list></txp:if_section>">
+<meta property="og:image:alt" content="<txp:image_info type="alt" />">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:image" content="<txp:image_url link="0" />">
+<meta property="twitter:image:alt" content="<txp:image_info type="alt" />">
+</txp:if_plugin></txp:images></txp:article_custom>
+
+
 <txp:if_individual_article>
 <!-- Get your fb user ID, then uncomment this line: https://findmyfbid.com/
 <meta property="fb:pages" content="{FB_DESTINATION_PAGE_ID}">
@@ -65,11 +88,11 @@ echo( ($parts['scheme'] == 'https' ? '<meta name="referrer" content="origin">' :
 -->
 <meta property="ia:rules_url_dev" content="<txp:site_url escape="" />fb-instant-articles">
 </txp:if_individual_article>
-<meta property="og:type" content="website">
+
 <meta property="og:locale" content="en_US">
 <meta property="og:updated_time" content="<txp:php>echo strtotime(get_pref('lastmod'));</txp:php>">
-<!-- Get your fb app ID, then uncomment this line: https://developers.facebook.com/docs/apps/ -->
-<meta property="fb:app_id" content="702400866"> 
+<!-- Get your fb app ID, then uncomment this line: https://developers.facebook.com/docs/apps/ 
+<meta property="fb:app_id" content="702400866"> -->
 
 <txp:feed_link flavor="atom" format="link" label="Atom" />
 <txp:feed_link flavor="rss" format="link" label="RSS" />

@@ -1,8 +1,13 @@
 <txp:if_different>
 	<txp:variable name="custom_styles" value="-webkit-filter:contrast(1.2) saturate(1.35);filter:contrast(1.2) saturate(1.35)" />
-
+<txp:php>
+global $variable;
+$variable['full'] = (count(explode(',', custom_field(array('name'=>'article_image')))) > 1 ? '' : ' full');
+</txp:php>
 <txp:else /> 
 </txp:if_different>
+
+<txp:variable name="id" value='<txp:article_id />' />
 
 <txp:if_article_list>
 
@@ -14,7 +19,7 @@ $variable['first_pic'] = strtok(custom_field(array('name'=>'article_image')), ',
 		<txp:images form="images" limit="1" id='<txp:variable name="first_pic" />' break="">
 		<figure class="aspect-ratio">
 			<a href="<txp:permlink />/">
-				<picture<txp:smd_if_thumbnail type="w_tiny27"> style="<txp:variable name="custom_styles" />;background:url(),url(<txp:smd_thumbnail type='w_tiny27' display='url' id='<txp:image_info type="id" />' />) center center no-repeat;background-size:100% 100%;</txp:smd_if_thumbnail>min-height:150px">
+				<picture<txp:smd_if_thumbnail type="w_tiny27"> style="<txp:variable name="custom_styles" />;background:url(<txp:smd_thumbnail type='w_tiny27' display='url' id='<txp:image_info type="id" />' />) center center no-repeat;background-size:100% 100%;</txp:smd_if_thumbnail>min-height:150px">
 				<txp:if_plugin name="smd_thumbnail">
 					<img <txp:smd_thumbnail type='w_980' id='<txp:image_info type="id" />' form="img_sizes" /> srcset="<txp:smd_thumbnail type='w_320' id='<txp:image_info type="id" />' form="img_srcset" />, <txp:smd_thumbnail type='w_980' id='<txp:image_info type="id" />' form="img_srcset" />, <txp:smd_thumbnail type='w_1280' id='<txp:image_info type="id" />' form="img_srcset" />" sizes="(min-width: 1200px) 1140px, (min-width: 992px) 940px, (min-width: 768px) 720px, calc(100vw - 20px)" intrinsicsize="3x2" alt="<txp:image_info type='alt' />" />
 				<txp:else />

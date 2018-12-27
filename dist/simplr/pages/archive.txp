@@ -13,7 +13,7 @@
 
 		<article class="float-l">
 
-		<txp:article limit="5" sort="Posted asc" />
+		<txp:article limit="5" sort="Posted desc" />
 
 		</article>
 

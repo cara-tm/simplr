@@ -1,3 +1,8 @@
+<txp:php>
+global $variable;
+$variable['full'] = (count(explode(',', custom_field(array('name'=>'article_image')))) > 1 ? '' : ' full');
+</txp:php>
+
 <txp:if_article_list>
 
 	<txp:if_article_image><txp:php>

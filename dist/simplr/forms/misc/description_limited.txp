@@ -1,32 +1,40 @@
 <txp:php>
-$lenght = 150;
-$description = meta_description(array('format'=>''));
+/**
+ * You can adapt the length of the limited string here by changing the value of $length below:
+*/
+$length = 150;
+$description = meta_description(array('format'=>'','escape'=>'trim, tidy'));
+
+$strip_html = true;
 // Sanitize.
 $description = str_replace(array('\r\n', '\r'), '\n', $description);
-// Social Networks often limit description to 200 characters.
-$description = strip_tags(_pat_article_social_trim($description, $lenght));
 // Remove some URLs into text content.
-$description = preg_replace('/(([&-a-z0-9;])?(#[a-z0-9;])?)[a-z0-9]+;/i', '', $description);
+$description = preg_replace('#[-a-zA-Z0-9@:%_\+.~\#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~\#?&//=]*)?#si', '', $description);
+// Convert double quotes
+$description = preg_replace('#\"?#s', '', $description);
 
-echo $description;
-
-function _pat_article_social_trim($input, $length, $strip_html = true) {
-	// Sanitize input.
-	$input = preg_replace('/\s+/S', " ", $input);
-	// Strip tags, if desired.
-	if ($strip_html)
-		$input = strip_tags($input);
-	// Trim if longer than trim length.
-	if ( strlen($input) > $length )
-		// Special signs found?
-		if ( in_array( substr($input, $length, 1), array(' ', '.', '!', '?') ) )
-			// Remove last special sign, add hellips.
-			return substr( trim( $input, '.' ), 0, $length - 1).'...';
-		else
-			// No special signs, add hellips.
-			return substr($input, 0, $length).'...';
-	else
-		// No need to trim, already shorter than trim length.
-		return $input;
+// Social Networks often limit description to 200 characters.
+$input = $description;
+// Sanitize input.
+$input = preg_replace('/\s+/S', " ", $input);
+// Strip tags, if desired.
+if ($strip_html) {
+	$input = strip_tags($input);
 }
+
+// Trim if longer than trim length.
+if (strlen($input) > $length) {
+	// Special signs found?
+	if (in_array(substr($input, $length, 1), array(' ', '.', '!', '?'))) {
+		// Remove last special sign, add hellips.
+		echo substr(trim($input, '.'), 0, $length - 1).'...';
+	} else {
+		// No special signs, add hellips.
+		echo substr($input, 0, $length).'...';
+	}
+} else {
+	// No need to trim, already shorter than trim length.
+	echo rtrim($input);
+}
+
 </txp:php>

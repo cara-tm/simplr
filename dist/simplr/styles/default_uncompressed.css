@@ -1,13 +1,13 @@
 @charset "UTF-8";
 
-/*!
+/**!
  *
  * Simplr Textpattern CMS theme
  *
- * @version  2.1
+ * @version  2.2
  * @date     2018/12/14
- * @revision 201/12/26
- * @file     Global CSS rules (number of lines: 2379)
+ * @revision 201/12/27
+ * @file     Global CSS rules (number of lines: 2504)
  * @author   Patrick LEFEVRE <patrick[dot]lefevre[at]gmail[dot]com>
  * @licence  GPL2
  *
@@ -562,7 +562,9 @@ table th {
 	overflow-x: hidden;
 	float: left;
 	position: absolute;
+/*
 	position: -ms-device-fixed;
+*/
 	z-index: 2;
 	top: 1em;
 	left: 0;
@@ -1180,7 +1182,7 @@ input[type="checkbox"]:checked::before {
 	display: block;
 	position: absolute;
 	top: -.6365489em;
-	left: -.09em;
+	left: -.084em;
 	color: #006553;
 	font-size: 2.05em
 }
@@ -1189,6 +1191,8 @@ input[type="checkbox"]:invalid {
 	border-color: none;
 	box-shadow: none
 }
+
+.comError {color: #e84118}
 
 input.button,
 .comSubmit {

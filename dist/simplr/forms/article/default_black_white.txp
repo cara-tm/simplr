@@ -8,6 +8,8 @@ $variable['full'] = (count(explode(',', custom_field(array('name'=>'article_imag
 <txp:else /> 
 </txp:if_different>
 
+<txp:variable name="id" value='<txp:article_id />' />
+
 <txp:if_article_list>
 
 	<txp:if_article_image><txp:php>

@@ -1,6 +1,10 @@
-	<txp:com_connect_email name="email" label="Email Address (required)" class="input-txt" break="" required="1" autofocus="true" autocomplete="on" lang='<txp:lang />' />
-	<txp:com_connect_text name="phone" label="Phone (optional)" class="input-txt" break="" required="0" autocomplete="on" min="7" max="15" lang='<txp:lang />' />
-<txp:com_connect_textarea name="message" label="Your Message (required)" class="" break="" required="1" />
+	<p>Fields marked <b class="required" title="Required">*</b> are required.</p>
+	<label for="email" class="input-txt comRequired">Email Address (required) <b class="required tooltip" title="<txp:text item="required" />">*</b></label>
+	<txp:com_connect_email name="email" label="" class="input-txt" break="" required="1" autofocus="true" autocomplete="on" lang='<txp:lang />' />
+	<label for="phone" class="input-txt">Phone (optional)</label>
+	<txp:com_connect_text name="phone" label="" class="input-txt" break="" required="0" autocomplete="on" min="7" max="15" lang='<txp:lang />' />
+	<label for="message" class="comRequired errorElement">Your Message (required) <b class="required tooltip" title="<txp:text item="required" />">*</b></label>
+	<txp:com_connect_textarea name="message" label="" class="" break="" required="1" />
 <txp:php>
 /**
  * Get browser language, given an array of avalaible languages.

@@ -1,5 +1,5 @@
 <txp:images break="">
-		<figure class="aspect-ratio<txp:if_section name=""> mt6</txp:if_section> tiny">
+		<figure class="aspect-ratio<txp:if_section name=""> mt6</txp:if_section> tiny<txp:variable name="full" />">
 
 <txp:if_plugin name="smd_thumbnail">
 		<picture style="<txp:variable name="custom_styles" />;background:url(<txp:smd_thumbnail type='w_tiny27' display='url' id='<txp:image_info type="id" />' />) center center no-repeat;background-size:100% 100%;min-height:100%">

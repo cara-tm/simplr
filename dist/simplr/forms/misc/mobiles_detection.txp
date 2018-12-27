@@ -7,13 +7,17 @@
  * @link https://github.com/serbanghita/Mobile-Detect
  */
 
-global $variable;
+global $pretext, $variable;
 
+// Notice: default device is 'desktop' if the Mobile_Detect.php file located into this theme directory is missing
 $variable['device'] = 'desktop';
 
-@require_once $_SERVER['DOCUMENT_ROOT'].'/textpattern/Mobile_Detect.php';
+$file = str_replace(hu, "http://", "").'themes/'.$pretext['skin'].'/Mobile_Detect.php';
 
-if (class_exists('Mobile_Detect')) {
+if (file_exists($file)) {
+
+	require_once $file;
+
 	$detect = new Mobile_Detect;
 
 	if ($detect->isMobile() && !$detect->isTablet()) {
