@@ -4,7 +4,7 @@
  * into readable copyright dates notice
  */
 
-// This website date creation
+// This website date creation or $first = '2019'
 $first = date('Y', get_pref('sql_now_created'));
 // The current year
 $now = date('Y', time());

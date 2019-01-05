@@ -15,8 +15,6 @@ $input = body(array());
 if ($strip_html) {
 	$input = strip_tags($input);
 }
-// Remove all table tags
-$input = preg_replace('/\<[\/]?(table)([^\>]*)\>/i', '', $input);
 // Trim if longer than trim length.
 if (strlen($input) > $length) {
 	// Special signs found?

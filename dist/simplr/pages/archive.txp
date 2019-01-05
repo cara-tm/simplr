@@ -20,6 +20,8 @@
 		<txp:output_form form="pages_pager" />
 
 	</main> <!-- /content -->
+
+<a href="#nogo" class="mouse"></a>
 	
 	<div class="push"></div>
 

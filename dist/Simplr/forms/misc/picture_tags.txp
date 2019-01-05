@@ -2,10 +2,6 @@
 Dependencies: 'images' form
 </txp:hide>
 
-<picture style="background:url(<txp:image_url id='<txp:variable name="first_pic" />' link="0" />), url(<txp:php>
-$id = variable(array('name'=>'first_pic'));
-$ext = image_info(array('id'=>$id,'type'=>'ext'));
-echo hu."images/w_tiny27/".$id.$ext;
-</txp:php>) center center no-repeat"><txp:images id="" break="">
+<picture><txp:images id="" break="">
 	<img src="<txp:image_url link='0' />" width="<txp:image_info type="w" />" height="<txp:image_info type="h" />" alt="<txp:image_info type='alt' />" lazyload="on" class="no-select" />
 </txp:images></picture>

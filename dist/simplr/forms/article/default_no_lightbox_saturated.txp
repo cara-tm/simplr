@@ -19,7 +19,7 @@ $variable['first_pic'] = strtok(custom_field(array('name'=>'article_image')), ',
 		<txp:images form="images" limit="1" id='<txp:variable name="first_pic" />' break="">
 		<figure class="aspect-ratio">
 			<a href="<txp:permlink />/" title="<txp:text item="read_more" />">
-				<picture<txp:if_plugin name="smd_thumbnail"><txp:smd_if_thumbnail type="w_tiny27"> style="<txp:variable name="custom_styles" />;background:url(),url(<txp:smd_thumbnail type='w_tiny27' display='url' id='<txp:image_info type="id" />' />) center center no-repeat;background-size:100% 100%;</txp:smd_if_thumbnail></txp:if_plugin>min-height:150px;min-height:44vw">
+				<picture<txp:if_plugin name="smd_thumbnail"><txp:smd_if_thumbnail type="w_tiny27"> style="<txp:variable name="custom_styles" />;background:url(),url(<txp:smd_thumbnail type='w_tiny27' display='url' id='<txp:image_info type="id" />' />) center center no-repeat;background-size:100% 100%;background-blend-mode:overlay;background-color:rgba(20,86,113,.5);</txp:smd_if_thumbnail></txp:if_plugin>min-height:150px;min-height:44vw">
 				<txp:if_plugin name="smd_thumbnail">
 					<img src="<txp:smd_thumbnail type='w_320' display='url' id='<txp:image_info type="id" />' form="img_sizes" />" srcset="<txp:smd_thumbnail type='w_320' id='<txp:image_info type="id" />' form="img_srcset" />, <txp:smd_thumbnail type='w_980' id='<txp:image_info type="id" />' form="img_srcset" />, <txp:smd_thumbnail type='w_1280' id='<txp:image_info type="id" />' form="img_srcset" />" sizes="(min-width: 1200px) 1140px, (min-width: 992px) 940px, (min-width: 768px) 720px, calc(100vw - 20px)" alt="<txp:image_info type='alt' />" />
 				<txp:else />
