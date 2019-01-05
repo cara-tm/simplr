@@ -5,7 +5,7 @@
  */
 
 // This website date creation
-$first = get_pref('sql_now_created');
+$first = date('Y', get_pref('sql_now_created'));
 // The current year
 $now = date('Y', time());
 echo( ($first < $now ? $first.'-'.$now : $now) );

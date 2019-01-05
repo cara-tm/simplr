@@ -1,11 +1,12 @@
 <txp:output_form form="mobiles_detection" /><!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#" lang="<txp:lang />" dir="<txp:text item="lang_dir" />" class="">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
 <meta charset="utf-8">
 <title><txp:site_name /> <txp:site_slogan /></title>
-<txp:meta_description /><txp:if_keywords><txp:name="keywords" separator="," /></txp:if_keywords>
-<meta name="robots" content="<txp:if_expires>unavailable_after: <txp:expires gmt format="%d-%b-%y %T" /> GMT<txp:else />index, follow</txp:if_expires>">
+<txp:meta_description />
+<txp:if_keywords><txp:meta_keywords separator="," /><txp:else /><meta name="keywords" content="<txp:site_slogan />" /></txp:if_keywords>
+
 <txp:php>
 $parts = @parse_url(urldecode(hu));
 echo( ($parts['scheme'] == 'https' ? '<meta name="referrer" content="origin">' : '') );
@@ -15,13 +16,16 @@ echo( ($parts['scheme'] == 'https' ? '<meta name="referrer" content="origin">' :
 <meta name="googlebot" content="<txp:if_expires>unavailable_after: <txp:expires gmt format="%d-%b-%y %T" /> GMT<txp:else />index,follow,noodp,noydir</txp:if_expires>">
 <meta name="google" content="notranslate">
 <meta name="referrer" content="origin">
+
+<!-- If you use Google Fonts Service & Analytics
 <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 <link rel="dns-prefetch" href="//google-analytics.com">
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Lora%7CMontserrat:300,400,700" onload="this.rel='stylesheet'">
-<!--
-<link rel="preload" as="style" href="<txp:css name="default" />" onload="this.rel='stylesheet'">
 -->
-<link rel="preload" as="style" href="<txp:site_url />css/default.min.css" onload="this.rel='stylesheet'">
+
+<link rel="preload" as="style" href="<txp:site_url />css/fonts.min.css" onload="this.rel='stylesheet'" media="screen">
+
+<link rel="preload" as="style" href="<txp:site_url />css/default.min.css" onload="this.rel='stylesheet'" media="screen">
 
 <txp:if_section name=""><link rel="canonical" href="<txp:site_url />"><txp:else /><txp:if_article_list><link rel="canonical" href="<txp:section url />"><txp:else /><link rel="canonical" href="<txp:permlink />/"></txp:if_article_list></txp:if_section>
 
@@ -44,14 +48,21 @@ echo( ($parts['scheme'] == 'https' ? '<meta name="referrer" content="origin">' :
 <meta name="theme-color" content="#555555">
 -->
 
-<script>document.documentElement.className="js "+(!document.createElementNS||!document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect?"nosvg":"svg");var arr=['article','aside','footer','figcaption','figure','header','nav','main','picture','section','template'];for(var i=0;i<arr.length;i++){document.createElement(arr[i]);};function inject(){var e=this.responseText,h=document.getElementsByTagName("head")[0],a=document.getElementsByTagName("meta")[0],s=document.createElement("style");s.media='screen';s.textContent=e;if("undefined"!==typeof s){h.insertBefore(h.appendChild(s),a)}}function loadFonts(U,t,w){if(w<(window.innerWidth||document.documentElement.clientWidth||document.getElementBbyTagName("body").clientWidth)){if(typeof console!="undefined"){console.time("Process");};var args=Array.prototype.slice.call(arguments,3),xhr=new XMLHttpRequest();xhr.ontimeout=function(){console.error("The request for "+U+" timed out.")};xhr.onload=function(){if(xhr.readyState===4){if(xhr.status===200){inject.apply(xhr,args);document.querySelector("html").classList.add("wf-active");console.log("Fonts Loaded! class `.wf-active` added,");if(typeof console!="undefined"){console.timeEnd("Process");}}else{console.error(xhr.statusText);}}};xhr.open("GET",U,true);xhr.timeout=t;xhr.send(null);}}loadFonts('<txp:css name="fonts" media="screen" format="url" />', 3500, 680);</script>
+<script>document.documentElement.className="js "+(!document.createElementNS||!document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect?"nosvg":"svg");var arr=['article','aside','footer','figcaption','figure','header','nav','main','picture','section','template'];for(var i=0;i<arr.length;i++){document.createElement(arr[i]);};function inject(){var e=this.responseText,h=document.getElementsByTagName("head")[0],a=document.getElementsByTagName("meta")[0],s=document.createElement("style");s.media='screen';s.textContent=e;if("undefined"!==typeof s){h.insertBefore(h.appendChild(s),a)}}function loadFonts(U,t,w){if(w<(window.innerWidth||document.documentElement.clientWidth||document.getElementBbyTagName("body").clientWidth)){if(typeof console!="undefined"){console.time("Process");};var args=Array.prototype.slice.call(arguments,3),xhr=new XMLHttpRequest();xhr.ontimeout=function(){console.error("The request for "+U+" timed out.")};xhr.onload=function(){if(xhr.readyState===4){if(xhr.status===200){inject.apply(xhr,args);document.querySelector("html").classList.add("wf-active");console.log("Fonts Loaded! class `.wf-active` added,");if(typeof console!="undefined"){console.timeEnd("Process");}}else{console.error(xhr.statusText);}}};xhr.open("GET",U,true);xhr.timeout=t;xhr.send(null);}}loadFonts('<txp:css name="fonts" media="screen" format="url" />', 2500, 680);</script>
 
 <noscript>
 <link href="https://fonts.googleapis.com/css?family=Lora%7CMontserrat:300,400,700" rel="stylesheet">
 </noscript>
 
-<link href="<txp:site_url />css/default.min.css" rel="stylesheet">
-<txp:css name="print" media="print" format="link" />
+<!-- CSS: for better performances, remove these 2 lines -->
+<link rel="stylesheet" href="<txp:page_url type="theme_path" />/styles/default.css" media="screen">
+<link rel="stylesheet" href="<txp:page_url type="theme_path" />/styles/print.css" media="print">
+
+<!-- Then change by these one when the 2 files are uploaded into a /root/css/ directory 
+<link href="<txp:site_url />css/default.min.css" rel="stylesheet" media="screen">
+<link href="<txp:site_url />css/print.css" rel="stylesheet" media="print">
+-->
+
 
 <meta property="og:type" content="website">
 <txp:if_article_list><meta property="og:title" content="<txp:site_name /> <txp:site_slogan />">

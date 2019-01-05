@@ -44,6 +44,8 @@
 
 <section id="comments-form">
 
+<h3><txp:text item="form" /></h3>
+
 	<txp:comments_form />
 
 </section>

@@ -16,7 +16,7 @@ $file = str_replace(hu, "http://", "").'themes/'.$pretext['skin'].'/Mobile_Detec
 
 if (file_exists($file)) {
 
-	require_once $file;
+	@require_once $file;
 
 	$detect = new Mobile_Detect;
 

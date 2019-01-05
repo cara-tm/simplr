@@ -1,0 +1,8 @@
+============
+Email received.
+
+<txp:com_connect_if name="email"><txp:com_connect_label name="email" />: <txp:com_connect_value name="email" /><txp:else />Mr. Nobody</txp:com_connect_if> wrote:
+
+<txp:com_connect_if name="message"><txp:com_connect_value name="message" /><txp:else />Nothing much :(</txp:com_connect_if>
+
+============

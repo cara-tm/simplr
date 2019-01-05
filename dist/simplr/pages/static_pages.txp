@@ -57,10 +57,15 @@
 
 <txp:if_section name="contact">
 
+
 	<txp:if_plugin name="com_connect">
-		<txp:com_connect to="recipient@example.com" label="" class="" copysender="1" show_error="1" form="contact_form_en" body_form="message_formatting_fr" thanks="Your message hab been send. You will receive an answer as soon as possible." />
+
+		<txp:com_connect to="patrick.lefevre@gmail.com" label="" class="" copysender="1" show_error="1" form="contact_form_en" body_form="message_formatting_en" thanks="Your message hab been send. You will receive an answer as soon as possible." />
+
 	<txp:else />
+
 		<p>You need to install the <a href="https://github.com/textpattern/com_connect">com_connect plugin</a> first!</p>
+
 	</txp:if_plugin>
 
 

@@ -1,15 +1,16 @@
 	<div class="row">
 
-		<aside aria-label="<txp:text item="site_nav" />" class="aside no-select">
+		<aside aria-label="<txp:text item="site_nav" />" aria-labelledby="sidebar-title" class="aside no-select">
+			<span class="readers" id="sidebar-title"><txp:text item="site_nav" /></span>
 			<div class="aside-outer">
 				<div class="aside-inner">
 				<txp:if_section name="">
-				<h1><a rel="home" href="<txp:site_url />">CAFÉ’<br> OLÉ<br> Choco’<br>L<span>a</span>tte</a></h1><txp:else />
-				<strong><a rel="home" href="<txp:site_url />">CAFÉ’<br> OLÉ<br> Choco’<br> L<span>a</span>tte</a></strong>
+				<h1><a rel="home" href="<txp:site_url />"><txp:site_name /></a></h1><txp:else />
+				<strong><a rel="home" href="<txp:site_url />"><txp:site_name /></a></strong>
 				</txp:if_section>
 				<nav aria-label="<txp:text item="site_nav" />">
 				<ul class="main-menu">
-<txp:section_list active_class="active" default_title="" exclude="search" sections="blog,about,contact" wraptag="" break="">
+<txp:section_list active_class="active" default_title="" exclude="search" sections="blog,articles,about,contact" wraptag="" break="">
 					<li><a href="<txp:section title="0" link="0" url="1" />" title=""><txp:section title="1" link="0" /></a></li>
 </txp:section_list>
 				</ul>

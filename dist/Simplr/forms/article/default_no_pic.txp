@@ -1,0 +1,29 @@
+<txp:if_article_list>
+
+	<txp:output_form form="article_metas" />
+
+<div class="excerpt">
+	<txp:if_excerpt>
+		<txp:excerpt />
+	<txp:else />
+		<p><txp:output_form form="shrink_text" /></p>
+	</txp:if_excerpt>
+	<span class="more"><a href="<txp:permlink />/"><txp:text item="continue_reading" />&thinsp;&rarr;</a></span>
+	<txp:if_last_article><txp:else /><hr class="bg-gray" /></txp:if_last_article>
+</div>
+
+<txp:else />
+
+
+	<txp:output_form form="article_metas" />
+
+	<div class="row mb3">
+		<txp:body />
+	</div>
+
+<txp:output_form form="post_pager" />
+
+
+	<txp:output_form form="comments_display" />
+
+</txp:if_article_list>

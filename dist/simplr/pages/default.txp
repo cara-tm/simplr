@@ -11,7 +11,7 @@
 
 	<div class="content">
 
-		<main aria-label="<txp:text item="main_content" />">
+		<main aria-label="<txp:text item="main_content" />" aria-labelledby="main-title" id="main">
 
 			<article class="float-l">
 
@@ -22,11 +22,11 @@
 						<h2 class="title"><txp:text item="articles" /> <txp:text item="by" /> <txp:text item="author" /> <txp:author /><b class="colon">:</b></h2>
 					</div>
 				</div>
-				<txp:article limit="5" sort="Posted desc" />
+				<txp:article limit="5" statut="live" sort="Posted desc" />
 
 <txp:else />
 
-				<txp:article limit="5" sort="Posted desc" />
+				<txp:article limit="5" statut="live" sort="Posted desc" />
 
 </txp:if_author>
 			

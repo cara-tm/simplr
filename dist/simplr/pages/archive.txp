@@ -9,7 +9,7 @@
 
 <txp:output_form form="menu_main" />
 
-	<main aria-label="<txp:text item="main_content" />" class="content">
+	<main aria-label="<txp:text item="main_content" />" aria-labelledby="main-title" id="main" class="content">
 
 		<article class="float-l">
 

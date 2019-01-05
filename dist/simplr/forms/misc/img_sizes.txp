@@ -1,1 +1,1 @@
-src="<txp:smd_thumbnail_info item='url' />" width="<txp:smd_thumbnail_info item='w' />" height="<txp:smd_thumbnail_info item='h' />" 
+src="<txp:smd_thumbnail_info item='url' />" width="<txp:smd_thumbnail_info item='w' />" height="<txp:smd_thumbnail_info item='h' />"
